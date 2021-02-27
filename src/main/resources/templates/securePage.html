@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Protected Page</title>
+</head>
+<body>
+
+<h1>Protected Page</h1>
+
+<p>Login was required to access this page</p>
+
+<p><a href="/home">home page</a></p>
+
+<p>
+    <form th:action="@{/logout}" method="post">
+        <button type="submit">Log Out</button>
+    </form>
+</p>
+
+</body>
+</html>
