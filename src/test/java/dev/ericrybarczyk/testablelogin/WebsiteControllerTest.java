@@ -3,6 +3,8 @@ package dev.ericrybarczyk.testablelogin;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -16,10 +18,12 @@ class WebsiteControllerTest {
 
     private static final String PATH_SECURE_PAGE = "/securePage";
     private static final String EXPECTED_SECURE_VIEW_NAME = "securePage";
-    private static final String EXPECTED_LOGIN_VIEW_NAME = "login";
 
     @Autowired
     private MockMvc mockMvc;
+
+    @MockBean
+    UserDetailsService userDetailsService;
 
     @WithMockUser("mockAuthenticatedUser")
     @Test
